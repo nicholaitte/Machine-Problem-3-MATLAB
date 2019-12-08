@@ -1,0 +1,21 @@
+x = input('Enter matrix: ');
+xi = x(:,1);
+yi = x(:,2);
+
+if length(xi)>=11
+    n = 10;
+else
+    n = length(xi)-1;
+end
+    values = x(n);
+
+for i = 1:n
+    o = polyfit(x,yi,i);
+    u = polyval(A,x);
+    values(i) = norm(yi-o);
+end
+
+[~,s] = min(values);
+fit = polyfit(x,yi,s);
+
+disp(fit)
